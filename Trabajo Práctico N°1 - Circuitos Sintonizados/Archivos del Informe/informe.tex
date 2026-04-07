@@ -26,7 +26,7 @@
 \maketitle
 
 \begin{abstract}
-En documento describe el proceso de diseño, simulación y armado físico de un acoplamiento inter-etapa mediante una red LC la cual provee una función de sintonía como adaptación de impedancia. 
+El documento describe el proceso de diseño, simulación y armado físico de un acoplamiento inter-etapa mediante una red LC, la cual provee una función de sintonía como adaptación de impedancia. 
 \end{abstract}
 
 
@@ -38,7 +38,7 @@ El objetivo de este trabajo práctico consiste en sintetizar los componentes rea
 
 \section{Desarrollo}
 \subsection{Marco Teórico}
-Para comenzar nuestro análisis, partiremos de una red LC paralelo la cual como indican sus terminales, se conectará entre el generador y la carga, tal como muestra la Fig. \ref{fig:fig_1}.
+Para comenzar nuestro análisis, partiremos de una red LC paralelo, la cual, como indican sus terminales, se conectará entre el generador y la carga, tal como muestra la Fig. \ref{fig:fig_1}.
 
 \begin{figure}[htbp]
     \centering
@@ -47,7 +47,7 @@ Para comenzar nuestro análisis, partiremos de una red LC paralelo la cual como 
     \label{fig:fig_1}
 \end{figure}
 
-Una red LC como la presentada, tiene la particularidad de actuar como un filtro pasabanda, para la cual se puede variar tanto el ancho de banda ($BW$) como la frecuencia central del filtro, ajustando sus parámetros eléctricos. Se tiene que una característica fundamental de esta red LC, es que existe una frecuencia donde tanto las reactancias capacitivas e inductivas se cancelan entre sí. A esta frecuencia se la conoce como frecuencia de resonancia ($f_{0}$) y se define como:
+Una red LC como la presentada, tiene la particularidad de actuar como un filtro pasabanda, para la cual se puede variar tanto el ancho de banda ($BW$) como la frecuencia central del filtro, ajustando sus parámetros eléctricos. Se tiene que una característica fundamental de esta red LC, es que existe una frecuencia donde tanto las reactancias capacitivas e inductiva se cancelan entre sí. A esta frecuencia se la conoce como frecuencia de resonancia ($f_{0}$) y se define como:
 \begin{equation}
     f_{0} = \frac{1}{2\pi\sqrt{LC_{T}}}
     \label{eq_1}
@@ -59,7 +59,7 @@ Se puede definir también al factor de calidad cargado de este circuito como la 
     \label{eq_2}
 \end{equation}
 
-Donde se define a $R_{T}$ como la resistencia total del circuito y estará dada por: $R_{T} = R_{G}//R_{P}//R_{L}$ donde $R_{G}$ es la resistencia del generador , $R_{P}$ es la resistencia de pérdida del inductor y $R_{L}$ es la resistencia de carga o de entrada del amplificador que se conecta luego del acoplador. Se sabe también que $X_{L}$ será igual a $X_{L} = 2 \pi f_{0} L$.
+Donde se define a $R_{T}$ como la resistencia total del circuito y estará dada por: $R_{T} = R_{G}//R_{P}//R_{L}$ donde $R_{G}$ es la resistencia del generador, $R_{P}$ es la resistencia de pérdida del inductor y $R_{L}$ es la resistencia de carga o de entrada del amplificador que se conecta luego del acoplador. Se sabe también que $X_{L}$ será igual a $X_{L} = 2 \pi f_{0} L$.
 
 Si bien se cumple la propiedad de sintonía del acoplador, necesitamos que esta red genere una adaptación de impedancias. Para ello se propone dividir primero la capacidad en dos capacidades iguales de valor $\frac{C}{2}$ conectadas en paralelo, de modo que el circuito quedará como el que se muestra en la Fig. \ref{fig:fig_2}.
 
@@ -91,7 +91,7 @@ De aquí se deduce que estas capacidades deberán ser iguales a:
 
 Nótese que aquí la capacidad total del circuito sigue siendo la misma, de modo tal que la frecuencia de resonancia descrita en \eqref{eq_1} se mantiene igual, sin embargo se ha implementado intencionalmente un transformador capacitivo mediante estas 4 capacidades. Esto nos permite reflejar las impedancias $R_{in}$ y $R_{L}$ hacia dentro del circuito, lo que facilitará los cálculos.
 
-Para demostrar las relaciones de transformación de impedancia, realizaremos el análisis considerando unicamente el puerto de entrada, de modo que la demostración para el puerto de salida es prácticamente igual a la del puerto de entrada. Por lo tanto, si definimos a la tensión que se encuentra en el borne superior de $C_{1}$ y tierra como $V_0$, entonces se debe cumplir entonces que:
+Para demostrar las relaciones de transformación de impedancia, realizaremos el análisis considerando únicamente el puerto de entrada, de modo que la demostración para el puerto de salida es prácticamente igual a la del puerto de entrada. Por lo tanto, si definimos a la tensión que se encuentra en el borne superior de $C_{1}$ y tierra como $V_0$, entonces se debe cumplir que:
 \begin{equation}
     V_{G} = V_{0} \frac{Z_{C_{2}}}{Z_{C_{1}} + Z_{C_{2}}} = V_{0} \frac{\frac{1}{sC_{2}}}{\frac{1}{sC_{1}} + \frac{1}{sC_{2}}}
     \label{eq_5}
@@ -129,7 +129,7 @@ Una vez desarrollado el marco teórico, se tienen las herramientas matemáticas 
             \label{eq_9}
         \end{equation}
         \begin{equation}
-            Q_{C} = 10 \ [\%]
+            Q_{C} = 10
             \label{eq_10}
         \end{equation}
     
@@ -192,7 +192,7 @@ Una vez desarrollado el marco teórico, se tienen las herramientas matemáticas 
 
     \item \underline{Paso 6:} Los valores de $Q_{D}$ y consecuentemente $R_{P}$ se tabularon de acuerdo a la relación de aspecto ($\frac{l}{D_T}$) y el diámetro del cobre esmaltado ($d_{C}$) en este paso. 
 
-    \item \underline{Paso 7:} Habiendo definido un amplio gama de valores de inductancia, se procede a calcular el valor de las capacitancias totales que generan que el circuito oscile en la $f_{0}$ definida según \eqref{eq_9}, siguiendo la siguiente fórmula:
+    \item \underline{Paso 7:} Habiendo definido una amplia gama de valores de inductancia, se procede a calcular el valor de las capacitancias totales que generan que el circuito oscile en la $f_{0}$ definida según \eqref{eq_9}, siguiendo la siguiente fórmula:
     \begin{equation}
         C_{T} = \frac{1}{(2 \pi f_{o})^2 L} \ [F]
         \label{eq_19}
@@ -268,11 +268,11 @@ Una vez desarrollado el marco teórico, se tienen las herramientas matemáticas 
     Como se menciono inicialmente, se tiene que esta demostración es prácticamente la misma para el puerto de salida, de modo que operando sobre \eqref{eq_8} y \eqref{eq_4}, se deducirá que:
     \begin{equation}
         C_{3} = \frac{C_{4}}{\sqrt{\frac{R_{L}'}{R_{L}}} - 1}
-        \label{eq_28}
+        \label{eq_29}
     \end{equation}
     \begin{equation}
         C_{4} = \frac{C_{T}}{2}\sqrt{\frac{R_{L}'}{R_{L}}}
-        \label{eq_27}
+        \label{eq_30}
     \end{equation}
     
 
@@ -282,9 +282,9 @@ Una vez desarrollado el marco teórico, se tienen las herramientas matemáticas 
         \item $C_{1} = 47 + 15 = 62 \ [pF] \approx 63.27 \ [pF]$
         \item $C_{2} = 150 + 150 = 300 \ [pF] \approx 304.36 \ [pF]$
         \item $C_{3} = 180 + 22 = 202 \ [pF] \approx 205.75 [pF]$
-        \item $C_{4} = 47 + 22 = 69 \ [pF] \approx 70.28 [Pf]$
+        \item $C_{4} = 47 + 22 = 69 \ [pF] \approx 70.28 \ [pF]$
     \end{itemize}
-    Nótese que tal ajuste de capacitancia, debe ser compensando por un ajuste en la inductancia para mantener la misma frecuencia de resonancia $f_{0}$. Esto implicó re calcular la inductancia y consecuentemente algunos parámetros constructivos del mismo, y para ello se tuvieron que establecer algunos criterios mínimos de que parámetros se podían ajustar, tales como:
+    Nótese que tal ajuste de capacitancia, debe ser compensando por un ajuste en la inductancia para mantener la misma frecuencia de resonancia $f_{0}$. Esto implicó recalcular la inductancia y consecuentemente algunos parámetros constructivos del mismo, y para ello se tuvieron que establecer algunos criterios mínimos de que parámetros se podían ajustar, tales como:
     \begin{itemize}
         \item El número de espiras ($N$).
         \item El largo del inductor ($l$).
@@ -318,7 +318,7 @@ Una vez concluidos los cálculos de diseño tanto del inductor como de los capac
 
 Una vez definido el circuito en base a los parámetros definidos en el final de la sección precendente a esta, se realizaron las siguientes mediciones:
 \begin{itemize}
-    \item \underline{Medición de $f_{0}$ y $BW$:} Para ello, se utilizó el circuito el circuito tal como se muestra en la Fig. \ref{fig:fig_7} y se realizo un barrido de se señales de AC en frecuencia y allí obtener el diagrama de bode de módulo y fase. Para estas mediciones sólo importa el diagrama de módulo el cual se muestra en la Fig. \ref{fig:fig_8}.
+    \item \underline{Medición de $f_{0}$ y $BW$:} Para ello, se utilizó el circuito el circuito tal como se muestra en la Fig. \ref{fig:fig_7} y se realizó un barrido de se señales de AC en frecuencia y allí obtener el diagrama de bode de módulo y fase. Para estas mediciones sólo importa el diagrama de módulo el cual se muestra en la Fig. \ref{fig:fig_8}.
 
     \begin{figure}[htbp]
         \centering
@@ -421,14 +421,14 @@ Una vez definido el circuito en base a los parámetros definidos en el final de 
             Z_{out} = \frac{3.24(1000)}{1.94} - 1000 \approx 670.1 \ [\Omega]
         \label{eq_39}
     \end{equation}
-    Nuevamente se tiene que el error encontrado se le atribuye a que la simulación se realizo con la resistencia de pérdida.
+    Nuevamente se tiene que el error encontrado se le atribuye a que la simulación se realizó con la resistencia de pérdida.
 \end{itemize}
 Vemos entonces que los valores de simulación se encuentran relativamente próximos a los valores calculados, por lo tanto se procede con el armado en físico del circuito.
 
 
 
 \subsection{Armado y Mediciones Físicas del Circuito}
-Una vez simulado el circuito, se tuvo la certeza de que los componentes reactivos elegidos funcionan por lo tanto, se decidió realizar el armado físico del circuito el cual se presenta en la Fig. \ref{fig:fig_14}.
+Una vez simulado el circuito, se tuvo la certeza de que los componentes reactivos elegidos funcionan, por lo tanto, se decidió realizar el armado físico del circuito el cual se presenta en la Fig. \ref{fig:fig_14}.
 
 \begin{figure}[htbp]
     \centering
@@ -439,16 +439,16 @@ Una vez simulado el circuito, se tuvo la certeza de que los componentes reactivo
 
 Antes de comenzar con el análisis de las mediciones físicas, hay ciertos aspectos constructivos del circuito que deben ser mencionados:
 \begin{itemize}
-    \item Si bien re realizaron los cálculos y diseño del inductor para un diámetro de cobre esmaltado de: $d_{C} = 0.2 \ [cm]$, se tiene que el inductor fue armado con un diámetro de cobre de: diámetro de cobre $d_{C} = 0.195 \ [cm]$. Si bien parece una diferencia insignificante, se tiene que una variación en el diámetro del cobre esmaltado, indudablemente afectará al valor de la inductancia.
+    \item Si bien se realizaron los cálculos y diseño del inductor para un diámetro de cobre esmaltado de: $d_{C} = 0.2 \ [cm]$, se tiene que el inductor fue armado con un diámetro de cobre de: $d_{C} = 0.195 \ [cm]$. Si bien parece una diferencia insignificante, se tiene que una variación en el diámetro del cobre esmaltado, indudablemente afectará al valor de la inductancia.
     
-    \item También deben realizarse ciertas consideraciones constructivas del inductor: Una de ellas siendo el número de espiras ($N$). Si bien en la Fig. \ref{fig:fig_6} se concluyo que el numero de vueltas debería ser de $6.83 \ [vueltas]$, se tuvo que redondear este valor a $7 \ [vueltas]$ debido a la imposibilidad constructiva de realizar un numero no entero de vueltas. Al igual que para la consideración anterior, modificar el número de espiras, indudablemente afectará al valor de la inductancia.
+    \item También deben realizarse ciertas consideraciones constructivas del inductor: Una de ellas siendo el número de espiras ($N$). Si bien en la Fig. \ref{fig:fig_6} se concluyó que el numero de vueltas debería ser de $6.83 \ [vueltas]$, se tuvo que redondear este valor a $7 \ [vueltas]$ debido a la imposibilidad constructiva de realizar un numero no entero de vueltas. Al igual que para la consideración anterior, modificar el número de espiras, indudablemente afectará al valor de la inductancia.
     
-    \item Para evitar el uso de cables BNC-Cocodrilo, se opto por utilizar los adaptadores BNC-Macho a Hembra que se observan en la Fig. \ref{fig:fig_14}. Esto se realizó con el fin de evitar las capacidades parásitas que causan los cables cocodrilos, las cuales en una frecuencia de trabajo de $f_{0} = 18 \ [MHz]$, resultan en impedancias considerables a las mediciones.
+    \item Para evitar el uso de cables BNC-Cocodrilo, se optó por utilizar los adaptadores BNC-Macho a Hembra que se observan en la Fig. \ref{fig:fig_14}. Esto se realizó con el fin de evitar las capacidades parásitas que causan los cables cocodrilos, las cuales en una frecuencia de trabajo de $f_{0} = 18 \ [MHz]$, resultan en impedancias considerables a las mediciones.
 \end{itemize}
 
 Con estas consideraciones en mente, se procede con la medición de valores de interés del circuito:
 \begin{itemize}
-    \item \underline{Medición de $f_{0}$:} La forma de conectar el circuito para medir la frecuencia de resonancia es la que se muestra en la Fig. \ref{fig:fig_15}. Allí, se busco variar la frecuencia del generador hasta encontrar un pico de amplitud de la señal de entrada.
+    \item \underline{Medición de $f_{0}$:} La forma de conectar el circuito para medir la frecuencia de resonancia es la que se muestra en la Fig. \ref{fig:fig_15}. Allí, se buscó variar la frecuencia del generador hasta encontrar un pico de amplitud de la señal de entrada.
 
     \begin{figure}[htbp]
         \centering
@@ -457,7 +457,7 @@ Con estas consideraciones en mente, se procede con la medición de valores de in
         \label{fig:fig_15}
     \end{figure}
 
-    Nótese que en la practica, la introducción de cualquier elemento de medición tendrá como consecuencia la introducción de la capacidad parásita interna del mismo, lo cual afectará consecuentemente a la medición y por lo tanto nunca mediremos $f_{0}$ directamente, sino más bien se mide:
+    Nótese que en la práctica, la introducción de cualquier elemento de medición tendrá como consecuencia la introducción de la capacidad parásita interna del mismo, lo cual afectará consecuentemente a la medición y por lo tanto nunca mediremos $f_{0}$ directamente, sino más bien se mide:
     \begin{equation}
         f_{0}' = \frac{1}{2\pi\sqrt{LC_{M}}}
         \label{eq_40}
@@ -487,7 +487,7 @@ Con estas consideraciones en mente, se procede con la medición de valores de in
         L = \frac{1}{(2\pi f_{0}')^{2} C_{M}}
         \label{eq_45}
     \end{equation}
-    Finalmente, se tiene que sabiendo el valor de $L$ y $C_{T}$, se puede calcular a $f_{0}$ siguiendo \eqref{eq_1}. Para realizar la medición, se utilizo un $C_{x} = 120 \ [pF]$ y se midió que las amplitudes máximas se encontraban en:
+    Finalmente, se tiene que sabiendo el valor de $L$ y $C_{T}$, se puede calcular a $f_{0}$ siguiendo \eqref{eq_1}. Para realizar la medición, se utilizó un $C_{x} = 120 \ [pF]$ y se midió que las amplitudes máximas se encontraban en:
     \begin{itemize}
         \item $f_{0}' \approx 15.65 \ [MHz]$
         \item $f_{0}'' \approx 11.4 \ [MHz]$
@@ -508,7 +508,7 @@ Con estas consideraciones en mente, se procede con la medición de valores de in
         \label{eq_48}
     \end{equation}
 
-    \item \underline{Medición del $BW$:} Para medir el ancho de banda, simplemente se conecto el circuito tal cual se lo muestra en la Fig. \ref{fig:fig_7} y se conecta el canal del osciloscopio a bornes de $R_{L}$. Luego se localiza la frecuencia de resonancia del circuito físico tal como muestra la Fig. \ref{fig:fig_16}.
+    \item \underline{Medición del $BW$:} Para medir el ancho de banda, simplemente se conectó el circuito tal cual se lo muestra en la Fig. \ref{fig:fig_7} y se conecta el canal del osciloscopio a bornes de $R_{L}$. Luego se localiza la frecuencia de resonancia del circuito físico tal como muestra la Fig. \ref{fig:fig_16}.
 
     \begin{figure}[htbp]
         \centering
@@ -559,7 +559,7 @@ Con estas consideraciones en mente, se procede con la medición de valores de in
         \label{eq_51}
     \end{equation} \\
 
-    \item \underline{Medición de $Z_{out}$:} Esta medición también se realizo de la misma forma en la que se simulo la medición de la impedancia de salida del circuito en LTSpice. Se observa en la Fig. \ref{fig:fig_20} que la caída de tensión a la salida y sin carga es igual a: $V_{out} = 3.16 \ [V]$
+    \item \underline{Medición de $Z_{out}$:} Esta medición también se realizó de la misma forma en la que se simulo la medición de la impedancia de salida del circuito en LTSpice. Se observa en la Fig. \ref{fig:fig_20} que la caída de tensión a la salida y sin carga es igual a: $V_{out} = 3.16 \ [V]$
 
     \begin{figure}[htbp]
         \centering
@@ -583,7 +583,7 @@ Con estas consideraciones en mente, se procede con la medición de valores de in
         \label{eq_52}
     \end{equation} \\
 
-    \item \underline{Medición de $R_{P}$:} Si bien carece de sentido simular una resistencia de perdida, resulta totalmente válido querer medirla físicamente para tener una noción de que tan cercano esta el valor real del valor diseñado de esta resistencia. Para ello se debe introducir una resistencia de prueba $R_{test} = 4700 \ [\Omega]$ tal como muestra la Fig. \ref{fig:fig_22}
+    \item \underline{Medición de $R_{P}$:} Si bien carece de sentido simular una resistencia de perdida, resulta totalmente válido querer medirla físicamente para tener una noción de que tan cercano está el valor real del valor diseñado de esta resistencia. Para ello se debe introducir una resistencia de prueba $R_{test} = 4700 \ [\Omega]$ tal como muestra la Fig. \ref{fig:fig_22}
 
     \begin{figure}[htbp]
         \centering
@@ -602,7 +602,7 @@ Con estas consideraciones en mente, se procede con la medición de valores de in
     \end{figure}
 
     Se tiene que se trata de prácticamente el mismo caso que para medir la impedancia de entrada y por lo tanto, las ecuaciones son las mismas con la salvedad de que se deben cambiar los valores de las variables. 
-    En la Fig. \ref{eq_24}, se observa que la tensión $V_{x} = 1.37 \ [V]$ para una alimentación de $V_{G} = 2 \ [V]$.
+    En la Fig. \ref{fig:fig_24}, se observa que la tensión $V_{x} = 1.37 \ [V]$ para una alimentación de $V_{G} = 2 \ [V]$.
 
     \begin{figure}[htbp]
         \centering
@@ -643,7 +643,7 @@ Los valores presentados en la Tabla \ref{tab:tab_1}, son valores que se encuentr
 
 
 \section{Análisis y Diseño de Acoplamiento $\pi$}
-Si bien el análisis y diseño de una red de acoplamiento LC ya se realizo en las secciones precedentes, se incluye aquí una sección extra, la cual habla sobre las ecuaciones de diseño de un sistema de acoplamiento con una red $\pi$. Para ello se dividirá esta sección en tres partes: las primeras dos tratarán sobre el marco teórico empleado y la segunda sobre una aplicación práctica.
+Si bien el análisis y diseño de una red de acoplamiento LC ya se realizó en las secciones precedentes, se incluye aquí una sección extra, la cual habla sobre las ecuaciones de diseño de un sistema de acoplamiento con una red $\pi$. Para ello se dividirá esta sección en tres partes: las primeras dos tratarán sobre el marco teórico empleado y la segunda sobre una aplicación práctica.
 
 
 
@@ -667,7 +667,7 @@ Realizando un análisis de circuito relativamente simple, se deduce que:
     \label{eq_55}
 \end{equation}
 
-Se tiene que una característica fundamental de este pasaje es que el factor de calidad de estos circuitos debe ser exactamente el mismo. Esto se debe a que sólo se ha modificado la forma de representar el circuito, sin embargo los factores de calidad siguen representando el mismo circuito y por lo tanto deben ser iguales. Esto nos lleva a pensar que sí los factores de calidad para el modelo serie y paralelo se definen como:
+Se tiene que una característica fundamental de este pasaje es que el factor de calidad de estos circuitos debe ser exactamente el mismo. Esto se debe a que sólo se ha modificado la forma de representar el circuito, sin embargo los factores de calidad siguen representando el mismo circuito y por lo tanto deben ser iguales. Esto nos lleva a pensar que si los factores de calidad para el modelo serie y paralelo se definen como:
 \begin{equation}
     Q_{s} = \frac{X_{s}}{R_{s}}
     \label{eq_56}
@@ -832,14 +832,14 @@ Se propone entonces diseñar un acoplador $\pi$ de tipo Colpitts el cual tendrá
     \label{fig:fig_30}
 \end{figure}
 
-Se propone utilizar el transistor BFP450 para la etapa amplificadora, el cual se presento en la Fig. \ref{fig:fig_27} sus impedancias de salida. Elegiremos como frecuencia de resonancia una $f_{0} = 1 \ [GHz]$ para la cual se observa que su impedancia normalizada esta dada por: $\dot{Z_{out}} \approx 0.4 - j0.05$ con $I_{c} = 90 \ [mA]$. Nótese que este valor esta normalizado a $Z_{o} = 50 \ [\Omega]$, tal que des normalizando se deduce que:
+Se propone utilizar el transistor BFP450 para la etapa amplificadora, el cual se presentó en la Fig. \ref{fig:fig_27} sus impedancias de salida. Elegiremos como frecuencia de resonancia una $f_{0} = 1 \ [GHz]$ para la cual se observa que su impedancia normalizada esta dada por: $\dot{Z_{out}} \approx 0.4 - j0.05$ con $I_{c} = 90 \ [mA]$. Nótese que este valor esta normalizado a $Z_{o} = 50 \ [\Omega]$, tal que des normalizando se deduce que:
 \begin{equation}
     Z_{out} = \dot{Z_{out}}(Z_{o}) \approx (0.4 - j0.05)(50) = 20 - j2.5 \ [\Omega]
     \label{eq_77}
 \end{equation}
 Luego diremos que: $BW = 30 \ [MHz]$ y que $R_{L} = 50 \ [\Omega]$. Con estos datos en mente, se propone realizar un cálculo ordenado en forma de pasos simples:
 \begin{itemize}
-    \item \underline{Paso 1:} Se inicia el diseño calculando a $Q_{C}$ según \ref{eq_2}:
+    \item \underline{Paso 1:} Se inicia el diseño calculando a $Q_{C}$ según \eqref{eq_2}:
     \begin{equation}
         Q_{C} = \frac{1000 \ [MHz]}{30 \ [MHz]} = 300
         \label{eq_78}
@@ -939,7 +939,7 @@ Se observa que $f_{0} = 1.0057 \ [GHz]$ lo que muestra un correcto calculo y dis
 \section{Conclusiones Finales}
 A modo de conclusión, se ha demostrado a lo largo de este informe un procedimiento claro y detallado sobre como diseñar una red de acoplamiento LC paralela: Para ello se planteó un marco teórico, seguido de un diseño por software utilizando Python para diseñar el inductor y los capacitores; Luego se simuló el circuito en LTSpice previo al armado para verificar que los valores obtenidos eran próximos a los del diseño. Finalmente se procedió con el armado y medición física del circuito en donde se obtuvieron mediciones bastante cercanas a las esperadas, concluyendo así con el análisis y diseño de esta red LC paralela para un acople inter-etapa de radiofrecuencias.
 
-Además, se realizó un apartado extra donde se analizo las ecuaciones de diseño de un acoplamiento $\pi$ siguiendo el mismo marco teórico, donde además se realizo tanto el cálculo como la verificación por simulación en LTSpice, del circuito diseñado con valores reales de componentes, tales como el transistor BFP450.
+Además, se realizó un apartado extra donde se analizo las ecuaciones de diseño de un acoplamiento $\pi$ siguiendo el mismo marco teórico, donde además se realizó tanto el cálculo como la verificación por simulación en LTSpice, del circuito diseñado con valores reales de componentes, tales como el transistor BFP450.
 
 
 
