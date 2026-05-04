@@ -1,0 +1,14 @@
+* C:\Users\Ernesto\Desktop\Ingeniería Electrónica\9- Noveno Semestre\Electrónica Analógica III\TP2 - Amplificador de Microondas\Archivos de la Simulación\Fuente de Corriente en LTSpice\TP2 - Diseño de la fuente de corriente.asc
+XU1 N001 N003 V_DD 0 N002 LT1006
+R_sense V_DD N001 100
+V_DD V_DD 0 5
+XU2 N001 N002 0 0 BFP760
+R1 N003 V_DD 40k
+R2 N003 0 10k
+* Simulación:
+.inc infineon-rftransistor-spice.lib-simulationmodels-en.lib
+.op
+.lib C:\Users\Ernesto\Desktop\Ingeniería Electrónica\9- Noveno Semestre\Electrónica Analógica III\TP2 - Amplificador de Microondas\Archivos de la Simulación\Fuente de Corriente en LTSpice\infineon-rftransistor-spice.lib-simulationmodels-en.lib
+.lib LTC.lib
+.backanno
+.end
