@@ -15,5 +15,5 @@ Se presentan a continuación los resultados de cada forma de polarizar el transi
 ## Fuentes
 * [Datasheet del BFP760](https://www.alldatasheet.com/datasheet-pdf/view/749038/INFINEON/BFP760.html)
 * [Modelo en LTSPice del BFP760](https://www.infineon.com/part/BFP760)
-* [Datasheet del LM317](https://en.wikipedia.org/wiki/Boot_image](https://www.alldatasheet.com/datasheet-pdf/view/11662/ONSEMI/LM317.html))
-* [Modelo en LTSpice del LM317](https://es.wikipedia.org/wiki/QEMU](https://github.com/kafana/ltspice-misc/tree/master/models))
+* [Datasheet del LM317](https://www.alldatasheet.com/datasheet-pdf/view/11662/ONSEMI/LM317.html)
+* [Modelo en LTSpice del LM317](https://github.com/kafana/ltspice-misc/tree/master/models)
