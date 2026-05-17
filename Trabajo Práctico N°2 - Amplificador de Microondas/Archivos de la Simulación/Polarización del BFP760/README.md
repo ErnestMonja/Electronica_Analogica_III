@@ -7,10 +7,11 @@ Se presentan a continuación los resultados de cada forma de polarizar el transi
 
 ![OPAMP](https://github.com/ErnestMonja/Electronica_Analogica_III/blob/main/Trabajo%20Pr%C3%A1ctico%20N%C2%B02%20-%20Amplificador%20de%20Microondas/Archivos%20de%20la%20Simulaci%C3%B3n/Polarizaci%C3%B3n%20del%20BFP760/Resultados%20con%20LT1006.jpeg)
    
-3. Polarización con LM317: Se obtuvo una: $V_{CE} = 0.935939 \ [V]$ e $I_{C} = 39.191 \ [mA]$. 
+2. Polarización con LM317: Se obtuvo una: $V_{CE} = 0.911829 \ [V]$ e $I_{C} = 40.7373 \ [mA]$. 
 
 ![LM317](https://github.com/ErnestMonja/Electronica_Analogica_III/blob/main/Trabajo%20Pr%C3%A1ctico%20N%C2%B02%20-%20Amplificador%20de%20Microondas/Archivos%20de%20la%20Simulaci%C3%B3n/Polarizaci%C3%B3n%20del%20BFP760/Resultados%20con%20LM317.jpeg)
 
+Se termino eligiendo la opción del LM317 debido a su facilidad de implementación y análisis.
 
 ## Fuentes
 * [Datasheet del BFP760](https://www.alldatasheet.com/datasheet-pdf/view/749038/INFINEON/BFP760.html)
