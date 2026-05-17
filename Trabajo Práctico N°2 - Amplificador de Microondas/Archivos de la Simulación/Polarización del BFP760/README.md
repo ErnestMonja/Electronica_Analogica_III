@@ -5,7 +5,7 @@ En esta parte del Repositorio, se encuentran las simulaciones para la fuente de 
 Se presentan a continuación los resultados de cada forma de polarizar el transistor:
 1. Polarización con OPAMP: Se obtuvo una: $V_{CE} = 1.00008 \ [V]$ e $I_{C} = 39.9992 \ [mA]$.
 
-![OPAMP](https://github.com/ErnestMonja/Electronica_Analogica_III/blob/main/Trabajo%20Pr%C3%A1ctico%20N%C2%B02%20-%20Amplificador%20de%20Microondas/Archivos%20de%20la%20Simulaci%C3%B3n/Polarizaci%C3%B3n%20del%20BFP760/Resultados%20con%20LT1006.jpeg)
+![OPAMP](https://github.com/ErnestMonja/Electronica_Analogica_III/blob/main/Trabajo%20Pr%C3%A1ctico%20N%C2%B02%20-%20Amplificador%20de%20Microondas/Archivos%20de%20la%20Simulaci%C3%B3n/Polarizaci%C3%B3n%20del%20BFP760/Resultados%20con%20OPAMP.jpeg)
    
 2. Polarización con LM317: Se obtuvo una: $V_{CE} = 0.911829 \ [V]$ e $I_{C} = 40.7373 \ [mA]$. 
 
@@ -18,3 +18,4 @@ Se termino eligiendo la opción del LM317 debido a su facilidad de implementaci�
 * [Modelo en LTSPice del BFP760](https://www.infineon.com/part/BFP760)
 * [Datasheet del LM317](https://www.alldatasheet.com/datasheet-pdf/view/11662/ONSEMI/LM317.html)
 * [Modelo en LTSpice del LM317](https://github.com/kafana/ltspice-misc/tree/master/models)
+
