@@ -181,7 +181,7 @@ Para un dispositivo de dos puertos, la relación se define en la \autoref{eq:par
     \label{fig:Param_S}
 \end{figure}
 
-Según la Fig. \autoref{fig:Coefs}, es posible definir los coeficientes de reflexión en términos de las pseudowaves y de las impedancias vistas en el circuito, con tal de poder relacionarlas con los valores de los parámetros $\mathrm{S}$ (\autoref{eq:Gamma_S}, \autoref{eq:Gamma_L}, \autoref{eq:Gamma_in}, \autoref{eq:Gamma_out}) \cite[p.~214]{gonzalez_amplifiers}. Notar que si se adaptan las impedancias del circuito (es decir, $\mathrm{Z_{S} = Z_{L} =Z_{0}}$), los coeficientes $\mathrm{\Gamma_{L}}$ y $\mathrm{\Gamma_{S}}$ se reducen a cero y no hay ondas reflejadas de vuelta al amplificador.
+Según la \autoref{fig:Coefs}, es posible definir los coeficientes de reflexión en términos de las pseudowaves y de las impedancias vistas en el circuito, con tal de poder relacionarlas con los valores de los parámetros $\mathrm{S}$ (\autoref{eq:Gamma_S}, \autoref{eq:Gamma_L}, \autoref{eq:Gamma_in}, \autoref{eq:Gamma_out}) \cite[p.~214]{gonzalez_amplifiers}. Notar que si se adaptan las impedancias del circuito (es decir, $\mathrm{Z_{S} = Z_{L} =Z_{0}}$), los coeficientes $\mathrm{\Gamma_{L}}$ y $\mathrm{\Gamma_{S}}$ se reducen a cero y no hay ondas reflejadas de vuelta al amplificador.
 \begin{equation}
     \mathrm{\Gamma_{S} = \frac{a_{1}}{b_{1}} = \frac{Z_{S} - Z_{0}}{Z_{S} + Z_{0}}}
     \label{eq:Gamma_S}
@@ -446,7 +446,11 @@ Al interconectar microtiras con anchos geométricos significativamente diferente
 
 Para mitigar las reflexiones resultantes, se implementan ``tapers'', estructuras que modifican el ancho de la tira de forma suave y continua, logrando que la impedancia característica varíe paulatinamente a lo largo de su longitud física y reduciendo el desacople electromagnético en la unión \cite{Tapers}. 
 
+
+
 \newpage
+
+
 
 \section{Desarrollo} \label{section:sec_3}
 Habiendo definido el marco teórico pertinente, este apartado expone la metodología de diseño del amplificador de RF. El procedimiento comprende el análisis paramétrico, el cálculo analítico, la validación mediante simulaciones y la implementación física del circuito.
@@ -462,55 +466,64 @@ Se hizo uso de material Fire Retardant Number 4 (FR4) para el armado del circuit
 
 \subsubsection{Medición del Espesor del Dieléctrico ($\mathrm{h}$) y Espesor del Cobre ($\mathrm{t}$)}
 \label{section:sec_3.1.1}
- Se trata de una medición física directa que consta de introducir una esquina de la placa virgen de FR4 al cloruro férrico, tal como se muestra en la \autoref{fig:Medición_h_y_t} y, siguiendo lo visto en la \autoref{fig:Geometria_microtira}, se midió el espesor del dieléctrico ($\mathrm{h}$) y el espesor del cobre ($\mathrm{t}$).
-    \begin{figure}[!h]
-        \centering
-        \includegraphics[width=0.4\textwidth]{Medición_h_y_t.jpeg}
-        \caption{Medición de $\mathrm{h}$ y $\mathrm{t}$ de las placas.}
-        \label{fig:Medición_h_y_t}
-    \end{figure}
+Se trata de una medición física directa que consta de introducir una esquina de la placa virgen de FR4 al cloruro férrico, tal como se muestra en la \autoref{fig:Medición_h_y_t} y, siguiendo lo visto en la \autoref{fig:Geometria_microtira}, se midió el espesor del dieléctrico ($\mathrm{h}$) y el espesor del cobre ($\mathrm{t}$).
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{Medición_h_y_t.jpeg}
+    \caption{Medición de $\mathrm{h}$ y $\mathrm{t}$ de las placas.}
+    \label{fig:Medición_h_y_t}
+\end{figure}
 
-    Se observa en la \autoref{fig:Medición_h_y_t} que la esquina introducida al cloruro férrico, ya disuelto el cobre, permitió medir $\mathrm{h}$. Por otro lado, el resto de la placa tendrá un espesor de $\mathrm{h + 2t}$, donde el término $\mathrm{2t}$ surge del espesor de cobre a un lado y al otro del dieléctrico. 
+Se observa en la \autoref{fig:Medición_h_y_t} que la esquina introducida al cloruro férrico, ya disuelto el cobre, permitió medir $\mathrm{h}$. Por otro lado, el resto de la placa tendrá un espesor de $\mathrm{h + 2t}$, donde el término $\mathrm{2t}$ surge del espesor de cobre a un lado y al otro del dieléctrico. 
     
-    Realizadas ambas mediciones con un micrómetro, se obtuvo el valor de ($\mathrm{h}$) y se dedujo el valor de ($\mathrm{t}$) como muestra la \autoref{eq:ht}:
+Realizadas ambas mediciones con un micrómetro, se obtuvo el valor de ($\mathrm{h}$) y se dedujo el valor de ($\mathrm{t}$) como muestra la \autoref{eq:ht}:
     
-    \begin{equation}
-        \begin{cases}
-            \mathrm{h = 1.57 \ mm} \\
-            \mathrm{t = 0.0275 \ mm}            
-        \end{cases}
-        \label{eq:ht}
-    \end{equation}
+\begin{equation}
+    \begin{cases}
+        \mathrm{h = 1.57 \ mm} \\
+        \mathrm{t = 0.0275 \ mm}            
+    \end{cases}
+    \label{eq:ht}
+\end{equation}
 \\
 
 
 
 \subsubsection{Medición de la permitividad eléctrica relativa $\mathrm{\epsilon_{r}}$} \label{section:sec_3.1.2}
-    Partiendo de los valores descritos en la \autoref{eq:ht}, se utilizaron las ecuaciones de la \autoref{section:sec_2.2} para diseñar microtiras que tengan una impedancia característica de $\mathrm{Z_{0} = 50 \ \Omega}$, asumiendo distintos valores de permitividad eléctrica relativa ($\mathrm{\epsilon_{r}}$). Nótese que la microtira que tenga un $\mathrm{\epsilon_{r}}$ más cercano al real de la placa, tendrá una mejor adaptación, la cual puede medirse con un roímetro. 
+Partiendo de los valores descritos en la \autoref{eq:ht}, se utilizaron las ecuaciones de la \autoref{section:sec_2.2} para diseñar microtiras que tengan una impedancia característica de $\mathrm{Z_{0} = 50 \ \Omega}$, asumiendo distintos valores de permitividad eléctrica relativa ($\mathrm{\epsilon_{r}}$). Nótese que la microtira que tenga un $\mathrm{\epsilon_{r}}$ más cercano al real de la placa, tendrá una mejor adaptación, la cual puede medirse con un roímetro. 
     
-    La \autoref{fig:Medición_e_r} muestra las 5 microtiras diseñadas para distintos valores de $\mathrm{\epsilon_{r}}$, entre las cuales varía su ancho para presentar la impedancia característica establecida. Tras realizar la medición con el roímetro, se dedujo que la microtira que presenta la mejor adaptación es la que presupuso que $\mathrm{\epsilon_{r} = 4}$, por lo que éste valor se tomó para realizar los cálculos posteriores que involucren este parámetro.
-    
-    \begin{figure}[!h]
-        \centering
-        \includegraphics[width=0.4\textwidth]{Medición_e_r.jpeg}
-        \caption{Medición de $\mathrm{\epsilon_{r}}$ de las placas.}
-        \label{fig:Medición_e_r}
-    \end{figure}
+La \autoref{fig:Medición_e_r} muestra las 5 microtiras diseñadas para distintos valores de $\mathrm{\epsilon_{r}}$, entre las cuales varía su ancho para presentar la impedancia característica establecida. Tras realizar la medición con el roímetro, se dedujo que la microtira que presenta la mejor adaptación es la que presupuso que $\mathrm{\epsilon_{r} = 4}$, por lo que éste valor se tomó para realizar los cálculos posteriores que involucren este parámetro.
+
+Para la realización de esta medición sobre la placa de prueba, fue necesario generar un layout con las dimensiones precisas de cada microtira, previamente calculada. Se utilizó el software KiCad versión 10.0 (Ver \autoref{fig:kicad}) y el método de transferencia de tóner, explicados a profundidad en la sección \autoref{section:sec_3.8.1}. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuras/ki_cad.png}
+    \caption{Entorno de trabajo con el layout a exportar.}
+    \label{fig:kicad}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Medición_e_r.jpeg}
+    \caption{Medición de $\mathrm{\epsilon_{r}}$ de las placas.}
+    \label{fig:Medición_e_r}
+\end{figure}
 
 
 
 \subsection{Selección de polarización} \label{section:sec_3.2}
-El código de Python \cite{repo} barre los archivos de polarización de la librería de Infineon para el BJT BFP760 y realiza el análisis de estabilidad que describe la \autoref{section:sec_2.6}, lo que resultó en que todas las polarizaciones posibles presentan estabilidad condicional en $\mathrm{f = 2\ MHz}$.
+El código de Python \cite{repo} barre los archivos de polarización de la librería de Infineon para el BJT BFP760 y realiza el análisis de estabilidad que describe la \autoref{section:sec_2.6}, lo que resultó en que todas las polarizaciones posibles presentan estabilidad condicional en $\mathrm{f = 2\ GHz}$.
 
 Se decidió utilizar la polarización con $\mathrm{k}$ más cercano a 1, tal que la zona de operación estable cubra la mayor área en la Carta de Smith (Ver \autoref{eq:pol}). El análisis detallado del desarrollo de estabilidad se encuentra en la \autoref{section:sec_3.4}.
+\begin{equation}
+    \begin{cases}
+        \mathrm{V_{CE} = 1 \ V} \\
+        \mathrm{I_C = 40 \ mA}            
+    \end{cases}
+    \label{eq:pol}
+\end{equation}
 
-    \begin{equation}
-        \begin{cases}
-            \mathrm{V_{CE} = 1 \ V} \\
-            \mathrm{I_C = 40 \ mA}            
-        \end{cases}
-        \label{eq:pol}
-    \end{equation}
 
 
 \subsection{Diseño de la Red de Polarización} \label{section:sec_3.3}
@@ -528,7 +541,6 @@ Para ello se utilizó el simulador comercial y gratuito de electrónica LTspice 
     \end{figure}
 
     \item \underline{Método N°2: Polarización con LM317}: Este regulador presenta en su hoja de datos una configuración tal que opere como fuente de corriente \cite{ti_lm317}. Se coloca un potenciómetro en serie a $\mathrm{R_{B}}$ para el ajuste de $\mathrm{V_{CE}}$ y un potenciómetro en paralelo a $\mathrm{R_{set}}$ para ajustar $\mathrm{I_{C}}$ (Ver \autoref{fig:Pol_LM317}).
-    
     \begin{figure}[!h]
         \centering
         \includegraphics[width=0.9\textwidth]{Resultados con LM317.jpeg}
@@ -539,7 +551,6 @@ Para ello se utilizó el simulador comercial y gratuito de electrónica LTspice 
 \end{itemize}
 
 Finalmente se decidió implementar la fuente de corriente con LM317, debido a su simpleza y versatilidad, ya que se puede configurar con cualquier regulador de tensión (no así el primer método es restrictivo en términos del Op-Amp a utilizar). La \autoref{fig:Pol_LM317_Fisica} muestra el circuito final en físico.
-
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.5\textwidth]{Polarización_armada.jpeg}
@@ -595,7 +606,6 @@ El trazado de los círculos se realizó con el código de Python \cite{repo}, y 
 \end{figure}
 
 Se seleccionó un punto que no comprometa la estabilidad del sistema ante variaciones de la impedancia de carga o de la fuente, manteniéndose lejos de los límites de los círculos.
-
 \begin{equation*}
     \mathrm{\Gamma_L = 0.95 \ \angle -45^\circ}
 \end{equation*}
@@ -631,23 +641,25 @@ Finalmente, utilizando la \autoref{eq:Ztransistor}, se transformaron los coefici
 Dado que la red de adaptación en la entrada es de carácter inductivo y la de salida capacitivo, se implementaron topologías de adaptación específicas para cada puerto, las cuales se detallan a continuación.
 \\
 
+
+
 \subsubsection{Adaptación a la entrada}
 Al presentar el transistor una impedancia de entrada con componente reactiva inductiva, se optó por una topología de adaptación basada en un transformador de $\lambda/4$ y un stub en circuito abierto conectado en paralelo, encargado de sintetizar la capacitancia necesaria para cancelar la susceptancia inductiva del puerto (Ver \autoref{fig:Adapt_in}).
 
 Para esto se debió transformar al modelo paralelo la impedancia de entrada utilizando la \autoref{eq:serie_a_paralelo}, e igualando la reactancia capacitiva del stub a la parte imaginaria de $\mathrm{Z_{in(p)}}$, se determinó el valor del capacitor de adaptación ($\mathrm{C_{in}}$). Simultáneamente, la adaptación de la componente puramente resistiva hacia la impedancia del sistema ($50 \ \Omega$) se logró calculando la impedancia característica del transformador ($\mathrm{Z_{0(in)}}$) mediante la \autoref{eq:Z_m_calc}. Ver los resultados en la \autoref{eq:adapt_in} y la \autoref{eq:Z_0in}.
 
 \begin{equation}
-        \mathrm{Z_{in(p)} = 27.3154 \parallel j19.9373 \ \Omega}
+    \mathrm{Z_{in(p)} = 27.3154 \parallel j19.9373 \ \Omega}
     \label{eq:Z_paralelo_calculadas}
 \end{equation}
 
 \begin{equation}
-        \mathrm{C_{in} = 3.99138 \ pF}
+    \mathrm{C_{in} = 3.99138 \ pF}
     \label{eq:adapt_in}
 \end{equation}
 
 \begin{equation}
-        \mathrm{Z_{0(in)} = 36.9563 \ \Omega}
+    \mathrm{Z_{0(in)} = 36.9563 \ \Omega}
     \label{eq:Z_0in}
 \end{equation}
 
@@ -658,18 +670,19 @@ Para esto se debió transformar al modelo paralelo la impedancia de entrada util
     \label{fig:Adapt_in}
 \end{figure}
 
+
+
 \subsubsection{Adaptación a la salida}
 Para el puerto de salida, cuya impedancia intrínseca presenta un comportamiento capacitivo, se procedió de forma análoga (Ver \autoref{fig:Adapt_out}). Mediante la inclusión de un transformador de $\lambda/4$, se adaptó la resistencia equivalente de salida a los $50 \ \Omega$ del sistema, determinando su impedancia característica $\mathrm{Z_{0(out)}}$.
 
 La componente reactiva se compensó mediante un segundo stub en circuito abierto encargado de sintetizar el capacitor ($\mathrm{C_{out}}$). Se ven los resultados en la \autoref{eq:adapt_out} y la \autoref{eq:Z_0out}.
-
 \begin{equation}
-        \mathrm{C_{out} = 0.944 \ pF}
+    \mathrm{C_{out} = 0.944 \ pF}
     \label{eq:adapt_out}
 \end{equation}
 
 \begin{equation}
-        \mathrm{Z_{0(out)} = 51.1233 \ \Omega}
+    \mathrm{Z_{0(out)} = 51.1233 \ \Omega}
     \label{eq:Z_0out}
 \end{equation}
 
@@ -689,18 +702,18 @@ Se calculó la permitividad efectiva ($\mathrm{\epsilon_{eff}}$) y se dimensiona
 \\
 
 
+
 \subsubsection{Líneas de adaptación} \label{section:sec_3.6.1}
 Para los transformadores de $\lambda/4$ y las líneas principales de conducción de la señal de RF, se obtuvieron las siguientes dimensiones físicas:
 
 \begin{table}[!h]
     \centering
     \renewcommand{\arraystretch}{1.2}
-    \begin{tabular}{|c|c|c|c|c|}
-    \hline
-    \textbf{Elemento} & $\mathbf{Z_c \ [\Omega]}$ & $\mathbf{\epsilon_{eff}}$ & $\mathbf{W_{eff} \ [mm]}$ & $\mathbf{d \ [mm]}$ \\ \hline
-    Líneas principales & 50.00 & 3.0733 & 3.2736 & - \\ \hline
-    Transformador Entrada & 36.95 & 3.1933 & 5.1694 & 20.9849 \\ \hline
-    Transformador Salida & 51.12 & 3.0642 & 3.1561 & 21.4222 \\ \hline
+    \begin{tabular}{|c|c|c|c|c|} \hline
+        \textbf{Elemento} & $\mathbf{Z_c \ [\Omega]}$ & $\mathbf{\epsilon_{eff}}$ & $\mathbf{W_{eff} \ [mm]}$ & $\mathbf{d \ [mm]}$ \\ \hline
+        Líneas principales & 50.00 & 3.0733 & 3.2736 & - \\ \hline
+        Transformador Entrada & 36.95 & 3.1933 & 5.1694 & 20.9849 \\ \hline
+        Transformador Salida & 51.12 & 3.0642 & 3.1561 & 21.4222 \\ \hline
     \end{tabular}
     \caption{Dimensiones geométricas de las líneas principales y transformadores.}
     \label{tab:dims_lineas}
@@ -710,32 +723,29 @@ Para los transformadores de $\lambda/4$ y las líneas principales de conducción
 
 \subsubsection{Elementos reactivos (Stubs)} \label{section:sec_3.6.2}
 Las longitudes eléctricas necesarias para sintetizar los capacitores de adaptación $\mathrm{C_{in}}$ y $\mathrm{C_{out}}$ mediante \textit{stubs} en circuito abierto con impedancia característica de $50 \ \Omega$, arrojaron los siguientes resultados geométricos:
-
 \begin{table}[!h]
     \centering
     \renewcommand{\arraystretch}{1.2}
-    \begin{tabular}{|c|c|c|c|}
-    \hline
-    \textbf{Elemento} & $\mathbf{Capacitancia \ [pF]}$ & $\mathbf{W_{eff} \ [mm]}$ & $\mathbf{d \ [mm]}$ \\ \hline
-    Stub de Entrada & 3.9914 & 3.2736 & 16.2238 \\ \hline
-    Stub de Salida & 0.94397 & 3.2736 & 7.2902 \\ \hline
+    \begin{tabular}{|c|c|c|c|} \hline
+        \textbf{Elemento} & $\mathbf{Capacitancia \ [pF]}$ & $\mathbf{W_{eff} \ [mm]}$ & $\mathbf{d \ [mm]}$ \\ \hline
+        Stub de Entrada & 3.9914 & 3.2736 & 16.2238 \\ \hline
+        Stub de Salida & 0.94397 & 3.2736 & 7.2902 \\ \hline
     \end{tabular}
     \caption{Dimensiones geométricas de los stubs de adaptación.}
     \label{tab:dims_stubs}
 \end{table}
 
 
+
 \subsubsection{Red de polarización en alta frecuencia} \label{section:sec_3.6.3}
 El diseño del choque de RF constó de lo detallado en la \autoref{section:sec_2.9}. Los resultados para la red de polarización resultaron en:
-
 \begin{table}[!h]
     \centering
     \renewcommand{\arraystretch}{1.2}
-    \begin{tabular}{|c|c|c|c|}
-    \hline
-    \textbf{Elemento} & $\mathbf{Impedancia\ caracteristica\ [\Omega]}$ & $\mathbf{W_{eff} \ [mm]}$ & $\mathbf{d \ [mm]}$ \\ \hline
-    Inductor de choque & 100 &  0.8277 & 22.3551 \\ \hline
-    Capacitor de desacople & 40 & 4.6106 & 21.0881 \\ \hline
+    \begin{tabular}{|c|c|c|c|} \hline
+        \textbf{Elemento} & $\mathbf{Impedancia\ caracteristica\ [\Omega]}$ & $\mathbf{W_{eff} \ [mm]}$ & $\mathbf{d \ [mm]}$ \\ \hline
+        Inductor de choque & 100 &  0.8277 & 22.3551 \\ \hline
+        Capacitor de desacople & 40 & 4.6106 & 21.0881 \\ \hline
     \end{tabular}
     \caption{Dimensiones geométricas de los elementos de la red de polarización.}
     \label{tab:dims_pol}
@@ -748,9 +758,9 @@ A fin de validar los cálculos analíticos y la síntesis geométrica desarrolla
 \\
 
 
+
 \subsubsection{Simulación del diseño ideal adaptado} \label{section:sec_3.7.1}
 En primera instancia, se ensambló el esquemático de simulación incorporando el modelo del transistor BFP760 junto con los elementos de adaptación sintetizados en la \autoref{section:sec_3.6}. Para modelar las microtiras, se utilizaron los componentes paramétricos de línea (\texttt{MLIN}) y circuitos abiertos (\texttt{MLOC}).
-
  \begin{figure}[!h]
      \centering
      \fbox{\includegraphics[width=0.85\linewidth]{Figuras/ADS_Ideal_Schematic.png}}
@@ -761,7 +771,6 @@ En primera instancia, se ensambló el esquemático de simulación incorporando e
 Al correr una simulación de parámetros S en un barrido de frecuencias centrado en $2 \ \mathrm{GHz}$, se obtuvieron los resultados mostrados en la \autoref{fig:ADS_Ideal_Graph}. 
 
 Se observa que a la frecuencia de diseño, ($\mathrm{S_{21}}$) presenta un valor cercano a la MSG teórica estimada, sin embargo puede notarse que mientras que las pérdidas de retorno de entrada ($\mathrm{S_{11}}$) tienen un valor elevado, no así las de salida ($\mathrm{S_{22}}$). Este resultado fue esperable porque ya que no era posible aplicar la adaptación conjugada simultánea, por lo que uno de los puertos no estará adaptado.
-
  \begin{figure}[!h]
      \centering
      \fbox{\includegraphics[width=0.85\linewidth]{Figuras/ADS_Ideal_Graph.png}}
@@ -770,26 +779,25 @@ Se observa que a la frecuencia de diseño, ($\mathrm{S_{21}}$) presenta un valor
  \end{figure}
 
 
+
 \subsubsection{Incorporación de tapers y líneas principales} \label{section:sec_3.7.2}
 Se introdujeron tapers para mitigar el efecto explicado en la \autoref{section:sec_2.10}, modelados mediante el componente \texttt{MTAPER} de ADS. Debido a que el taper posee una longitud física y altera la fase de la onda, se utilizó el código de Python \cite{repo} para recalcular la longitud de las líneas correspondientes y compensar este tramo adicional. Se definieron tapers de $3 \ \mathrm{mm}$ de longitud y los valores finales se detallan en la \autoref{tab:dims_pol_tapers}.
-
 \begin{table}[!h]
     \centering
     \renewcommand{\arraystretch}{1.2}
     \begin{tabular}{|c|c|c|c|}
-    \hline
-    \textbf{Elemento compensado} & $\mathbf{d \ original \ [mm]}$ & $\mathbf{\Delta d_{taper} \ [mm]}$ & $\mathbf{d_{final} \ [mm]}$ \\ \hline
-    Inductor de choque & 22.3550 & -1.8121 & 20.5429 \\ \hline
-    Capacitor desacople & 21.0880 & -0.3253 & 20.7627 \\ \hline
-    Capacitor de entrada & 16.2238 & -0.4582 & 15.7656 \\ \hline
-    Capacitor de salida & 7.2902 & -0.4582 & 6.8320 \\ \hline
+        \hline
+        \textbf{Elemento compensado} & $\mathbf{d \ original \ [mm]}$ & $\mathbf{\Delta d_{taper} \ [mm]}$ & $\mathbf{d_{final} \ [mm]}$ \\ \hline
+        Inductor de choque & 22.3550 & -1.8121 & 20.5429 \\ \hline
+        Capacitor desacople & 21.0880 & -0.3253 & 20.7627 \\ \hline
+        Capacitor de entrada & 16.2238 & -0.4582 & 15.7656 \\ \hline
+        Capacitor de salida & 7.2902 & -0.4582 & 6.8320 \\ \hline
     \end{tabular}
     \caption{Longitudes compensadas de la red de polarización tras incluir Tapers de $3 \ \mathrm{mm}$.}
     \label{tab:dims_pol_tapers}
 \end{table}
 
 También se añaden a la simulación las líneas principales de 50 $\Omega$, los ``GAPS'' en los stubs para corregir capacitancias al momento de la implementación física, y los capacitores cerámicos que aíslan los instrumentos del laboratorio de la continua de polarización del circuito (Ver \autoref{fig:ADS_Fisico_Schem}). Se ejecutó una simulación considerando el circuito completo. Las gráficas definitivas evidenciaron un gran deterioro en los coeficientes de reflexión de ambos puertos, y una baja considerable de ganancia comparada a ($\mathrm{S_{21}}$).
-
 \begin{figure}[!h]
     \centering
     \fbox{\includegraphics[width=1\linewidth]{Figuras/ADS_Fisico_Schematic.png}}
@@ -797,21 +805,19 @@ También se añaden a la simulación las líneas principales de 50 $\Omega$, los
     \label{fig:ADS_Fisico_Schem}
 \end{figure}
 
+\begin{figure}[!h]
+    \centering
+    \fbox{\includegraphics[width=0.85\linewidth]{Figuras/ADS_Fisico_Graph.png}}
+    \caption{Parámetros S del modelo físico simulado.}
+    \label{fig:ADS_Fisico_Graph}
+\end{figure}
 
- \begin{figure}[!h]
-     \centering
-      \fbox{\includegraphics[width=0.85\linewidth]{Figuras/ADS_Fisico_Graph.png}}
-     \caption{Parámetros S del modelo físico simulado.}
-     \label{fig:ADS_Fisico_Graph}
- \end{figure}
 
 
 \subsubsection{Ajuste fino de componentes}\label{section:sec_3.7.3}
-
 Ante la degradación de la respuesta frecuencial producida por los elementos parásitos, se recurrió a la herramienta de optimización manual ``Tuning'' de ADS. El objetivo de este procedimiento fue realizar un ajuste fino de las dimensiones de los transformadores de $\lambda/4$ y de las longitudes de los stubs de adaptación para evaluar dinámicamente cambios en la respuesta en la frecuencia de operación de $2 \ \mathrm{GHz}$.
 
 Tras sintonizar analíticamente los parámetros mencionados, se obtuvieron las curvas de respuesta expuestas en la \autoref{fig:ADS_Tuning_Graph}. Se observa una notable recuperación de la ganancia ($\mathrm{S_{21}}$) en comparación con el escenario degradado. Adicionalmente, mientras que la adaptación de entrada mantuvo un comportamiento controlado, el coeficiente de reflexión de salida ($\mathrm{S_{22}}$) logró optimizarse hasta alcanzar niveles significativamente menores que los del modelo ideal preliminar.
-
  \begin{figure}[!h]
      \centering
       \fbox{\includegraphics[width=1\linewidth]{Figuras/ADS_Tuning_Graph.png}}
@@ -821,22 +827,74 @@ Tras sintonizar analíticamente los parámetros mencionados, se obtuvieron las c
 
  
 \subsection{Armado Físico del Circuito} \label{section:sec_3.8}
-Una vez validado el diseño mediante simulaciones, se procedió a la materialización del amplificador.
-\\
+Una vez validado el diseño mediante simulaciones, se procedió a la materialización del amplificador. Para esto se requiere de: 
+\begin{itemize}
+    \item Placa de cobre FR4.
+    \item Conectores SMA 1.6 mm.
+    \item Transistor BFP760.
+    \item Elementos del circuito de polarización
+\end{itemize}
+
+Para llegar a un circuito físico final, se dividió el proceso en dos etapas:
+
+\begin{itemize}
+\item \underline{Layout}: Consta de la conexión de los elementos que conforman el circuito esquemático y que culmina con el diseño final (en formato Gerber o plano .svg).
+\item \underline{Fabricación}: Se toma el diseño final para la placa de cobre y se utilizan métodos de transferencia hasta tener un circuito listo para conectarse y medir.
+\end{itemize}
+
 
 \subsubsection{Diseño del Layout del circuito:}
-% NEGRO
 
-% No olvidar:
-% - Mencionar Espejado Horizontal 
-% - Explicar islas del emisor
-% - Mencionar el estirado las lineas principales (las de 50 Ohm) hasta que cubran el 10x10 cm
-% - Explicar lo del exténsil del BJT y la posición de las tiras según eso
+Se presentaron 2 alternativas posibles de entornos de trabajo para utilizar:
+
+\begin{itemize}
+    
+    \item \textbf{KiCad 10.0.0}: Herramienta de diseño de placas con varias ``layers'' y soporte para generar esquemáticos (con parámetros concentrados), plasmar las rutas de interconexión y posteriormente un layout.
+    
+    \item \textbf{Inkscape}: Herramienta de dibujo tipo Canvas, que permite introducir formas geométricas con dimensiones y ubicaciones precisas, que mantienen su tamaño en el archivo exportable, lo cual se traduce a superficies de cobre igualmente precisas.
+    
+\end{itemize}
+
+El entorno de trabajo elegido fue Inkscape, debido a la precisión del tamaño del archivo a exportar, además de las facilidades que ofrece para la edición y ubicación de las figuras para las microtiras, con un flujo de trabajo más intuitivo al trabajar en una sola capa y no multilayer, como es el caso de KiCad.
+
+Las pautas para la conformación del archivo .svg final fueron: 
+
+ \begin{itemize}
+    \item \underline{Diseño espejado}: Se realizó el diseño de layout espejado horizontalmente, ya que llegado el momento de imprimir las pistas, quedan orientadas como se muestra en la simulación, ya que de no hacerlo, la disposición invertida de los terminales del transistor habría impedido su correcto montaje y acoplamiento con las microtiras.
+    
+    \item \underline{Conexión de emisor a masa}: Se colocaron superficies o islas de cobre en los dos terminales de emisor del transistor, para posteriormente perforar las mismas y hacer la conexión a masa (Ver \autoref{section:sec_3.8.3}).
+    
+    \item \underline{Longitud de las líneas principales}: Las microtiras de 50 $\Omega$ deben aumentar su longitud para abarcar el largo entre los lados de la placa (10 cm), y así extenderse hasta los conectores SMA.
+
+    \item \underline{Separación entre terminales metálicos del transistor}: Para soldar correctamente los terminales del BFP760, es necesario hacer una precisa separación entre ellos. Para eso se utilizó el diagrama del exténsil del componente que se muestra en \autoref{fig:ext.png}, ubicado en el datasheet del BJT BFP760 \cite{infineon_bfp760}.
+
+\end{itemize}
+
+     \begin{figure}[!h]
+     \centering
+      \fbox{\includegraphics[width=1\linewidth]{Figuras/entorno_ink.png}}
+     \caption{Entorno de trabajo Inkscape con el circuito final a imprimir.}
+     \label{fig:entorno_ink}
+ \end{figure}
+
+    \begin{figure}[!h]
+     \centering
+      \fbox{\includegraphics[width=0.8\linewidth]{Figuras/ext.png}}
+     \caption{Huella para el montaje del empaquetado- PG-SOT343-4-1.}
+     \label{fig:ext.png}
+ \end{figure}
+ 
+    \begin{figure}[!h]
+     \centering
+      \fbox{\includegraphics[width=0.35\linewidth]{Figuras/ext_ki.png}}
+     \caption{Espaciado en el layout.}
+     \label{fig:ext_ki.png}
+ \end{figure}
 
 
 
-\\
-\subsubsection{Fabricación de la placa de circuito impreso (PCB)}
+
+\subsubsection{Fabricación de la placa de circuito impreso (PCB)}\label{section:sec_3.8.2}
 El diseño del layout final se exportó y se transfirió a la placa de sustrato FR4 virgen, previamente caracterizada en la \autoref{section:sec_3.1}. 
 
 Para plasmar las pistas de cobre, se empleó el método de transferencia térmica de tóner (conocido comúnmente como método de planchado), que consta de la impresión en papel satinado o de revista del circuito utilizando una impresora láser, con los trazos de tinta en los espacios donde se desea que el cobre permanezca. Luego, habiendo retirado impurezas y óxido en el cobre a utilizar, se aplicó presión y calor uniforme para fijar el tóner sobre la placa.
@@ -846,37 +904,44 @@ Posteriormente, se sumergió el sustrato en cloruro férrico con el objetivo de 
 Para concluir, se realizó una remoción de los restos de tóner remanentes con alcohol isopropílico, garantizando una superficie de cobre limpia y apta para el proceso de soldadura.
 \\
 
-\subsubsection{Tratamiento del plano de masa y vías}
 
+
+\subsubsection{Tratamiento del plano de masa y vías}\label{section:sec_3.8.3}
 Dado que la topología de microtiras requiere un plano de masa continuo en la cara inferior, se perforó el sustrato FR4 utilizando un mini-torno de alta velocidad (tipo Dremel), habilitando perforaciones en islas de cobre específicas, para los emisores del transistor. 
 
 La conexión eléctrica entre estas islas de la cara superior y el plano sólido inferior se materializó insertando conductores metálicos (obtenidos a partir de terminales de resistencias recicladas). Estos conductores fueron soldados al ras en ambas caras de la placa para asegurar una óptima continuidad eléctrica y minimizar las inductancias parásitas asociadas a la longitud de la vía.
 \\
 
-\subsubsection{Ensamblaje y soldadura de componentes}
 
+
+\subsubsection{Soldadura de componentes e integración del sistema completo}
 En primer lugar, se soldó el transistor BJT BFP760. Debido a su alta sensibilidad a estrés térmico, se empleó un soldador de punta fina y flux, apuntando a uniones metálicas brillantes, precisas y sin excesos de estaño que pudieran alterar el comportamiento del modelo.
 
-A continuación, se posicionaron los capacitores cerámicos de bloqueo de continua, y por último, se montaron los conectores SMA de $50 \ \Omega$ en los bordes de la placa para los puertos de entrada y salida, asegurando una transición mecánica y eléctrica robusta desde el pin central hacia la pista de RF.
-\\
-
-\subsubsection{Integración del sistema completo}
+A continuación, se posicionaron los capacitores cerámicos de bloqueo de continua, y por último, se montaron los conectores SMA de $50 \ \Omega$ en los bordes de la placa para los puertos de entrada y salida, asegurando una transición mecánica y eléctrica robusta desde el pin central hacia la pista correspondiente.
 
 Finalmente, la placa de RF se interconectó con la etapa de polarización en continua (basada en el regulador LM317, detallada en la \autoref{section:sec_3.3}). La alimentación de corriente continua ($\mathrm{V_{CE}}$ e $\mathrm{I_C}$) se inyectó a través de los nodos previstos en los inductores de choque.
 \\
+
+
 
 \subsection{Mediciones y resultados} \label{section:sec_3.9}
 Concluido el ensamblaje del prototipo físico, se procedió a la etapa de medición en el laboratorio. Esta fase se dividió en dos instancias: la verificación estática del punto de trabajo en corriente continua y la medición de la respuesta en frecuencia.
 \\
 
+
+
 \subsubsection{Verificación del punto de polarización}
 Antes de inyectar señales de radiofrecuencia, se corroboró el correcto funcionamiento de la red de polarización activa. Alimentando el circuito con una fuente de tensión de $5\ \text{V}$, se ajustaron los potenciómetros de la fuente de corriente diseñada hasta alcanzar los valores de reposo deseados para el BJT BFP760 ($\mathrm{V_{CE}} = 1\ \text{V}$ y $\mathrm{I_C} = 40\ \text{mA}$).
 \\
+
+
 
 \subsubsection{Caracterización de las pérdidas del instrumental}
 Previo a evaluar la ganancia del circuito, resultó indispensable cuantificar la atenuación introducida por el cableado utilizado en el conexionado, con el fin de compensar este valor al momento de analizar la respuesta neta del amplificador. 
 
 En la \autoref{fig:perdida_pot} se observa que, ante una potencia de inyección de $-30\ \text{dBm}$ desde el generador, el nivel de potencia recibido en el analizador a la frecuencia de diseño de $2\ \text{GHz}$ fue de $-37.4\ \text{dBm}$. Por consiguiente, se determinó una pérdida de inserción en los cables de $7.4\ \text{dB}$.
+
+Las mediciones se realizaron con estos cables durante todo el proceso restante.
 
 \begin{figure}[!h]
     \centering
@@ -885,6 +950,8 @@ En la \autoref{fig:perdida_pot} se observa que, ante una potencia de inyección 
     \label{fig:perdida_pot}
 \end{figure}
 \\
+
+
 
 \subsubsection{Primera medición}
 
@@ -900,6 +967,8 @@ La respuesta inicial del circuito, expuesta en la \autoref{fig:osc}, evidenció 
     \label{fig:osc}
 \end{figure}
 \\
+
+
 
 \subsubsection{Ajuste y optimización del circuito}
 Ante la presencia de inestabilidades, se llevaron a cabo una serie de modificaciones empíricas para identificar y mitigar la causa de la oscilación.
@@ -940,7 +1009,7 @@ La respuesta final del circuito estabilizado se expone en la \autoref{fig:gain}.
 
 El desarrollo del presente trabajo transitó el flujo completo de diseño de un amplificador de radiofrecuencia a $2 \ \mathrm{GHz}$, abarcando desde la síntesis analítica y simulación, hasta la implementación del prototipo físico. 
 
-Durante la etapa de validación práctica, se evidenciaron los desafíos en microondas. La primera evaluación del circuito arrojó un comportamiento oscilatorio severo, producto de inestabilidades parásitas no contempladas por el modelo lineal ideal. No obstante, mediante una etapa de ajuste manual sobre las redes de adaptación, se logró extinguir la oscilación y estabilizar el sistema ajustando la capacitancia de entrada. 
+Durante la etapa de validación práctica, se evidenciaron los desafíos en microondas. La primera evaluación del circuito arrojó un comportamiento oscilatorio severo, producto de desadaptaciones e imperfecciones en el circuito no contemplados por el modelo lineal ideal que fue simulado. No obstante, mediante una etapa de ajuste manual sobre las redes de adaptación, se logró extinguir la oscilación y estabilizar el sistema ajustando la capacitancia de entrada. 
 
 Como resultado definitivo, el amplificador demostró ser funcional, entregando una ganancia neta real de $8.3 \ \mathrm{dB}$ a la frecuencia de diseño. La \autoref{tab:comparativa_final} resume los valores de mérito obtenidos en las distintas etapas del proyecto.
 
@@ -965,6 +1034,11 @@ Al contrastar la medición física final con las simulaciones del modelo ajustad
     \item \textbf{Tolerancia del sustrato:} La permitividad relativa fue evaluada para valores discretos y posiblemente tiene un valor real distinto al que se tomó finalmente. Esto altera la constante de fase y, por consiguiente, la longitud eléctrica efectiva de los transformadores y stubs.
 
     \item \textbf{Efectos parásitos de montaje:} Las soldaduras manuales, especialmente en los pines del BFP760 y las vías de masa pasantes, introducen inductancias de dispersión que modifican los coeficientes de reflexión, degradando la adaptación en los puertos y reduciendo la transferencia de potencia máxima.
+
+    \item \textbf{Errores en las pistas por el método de impresión:} Las pistas presentaban rugosidades e imperfecciones típicas a raíz del método utilizado, el cual no asegura la precisión que se tiene en la simulación. Por lo tanto es de esperarse comportamientos inesperados por esta cuestión.
+
+    \item \textbf{Conectores SMA 1,6 mm:} La gran variedad de calidades de los conectores disponibles en el mercado conllevan efectos parásitos en el montaje. Puesto que no se utilizaron conectores de la mayor calidad, se tiene un pequeño margen de mejora en este aspecto.
+    
 \end{itemize}
 
 A pesar de estos obstáculos introducidos por la naturaleza física de los materiales y la manufactura artesanal, el objetivo principal fue cumplido con éxito, validando las herramientas analíticas y de simulación empleadas para la síntesis de redes distribuidas en el espectro de las microondas.
@@ -982,9 +1056,12 @@ Se proponen las siguientes líneas de mejora para futuras iteraciones del diseñ
     \item \underline{Manufactura industrial y control de impedancia}: Reemplazar el método artesanal de transferencia térmica por un proceso de fabricación industrial (por ejemplo, fotolitografía con máscara anti-soldante). Esto garantizaría bordes perfectamente definidos en las microtiras, reduciendo la rugosidad del cobre y evitando alteraciones en la impedancia característica de las líneas de 50 $\Omega$. Asimismo, permitiría implementar vías metalizadas pasantes, eliminando las inductancias parásitas asociadas a los conductores soldados a mano.
     
     \item \underline{Modelado electromagnético y co-simulación del encapsulado}: Desarrollar o adquirir las librerías con los modelos de empaquetado (o footprints) exactos para el transistor BFP760. Esto facilitaría la ejecución de una co-simulación circuital y electromagnética completa en ADS antes de la fabricación, permitiendo predecir las condiciones de inestabilidad en la etapa de software, evitando la necesidad de realizar ajustes empíricos sobre el cobre.
+
+    \item \underline{Reducción de la inductancia parásita de los contactos}: Los contactos a masa a través del plano de masa, desde la microtira, se realizaron como bien se comenta en la \autoref{section:sec_3.8.2}, perforando la placa, pasando un conductor y metalizando los contactos. Este conjunto presenta una inductancia L de pérdida en el emisor. Aumentar el número de perforaciones para el contacto con masa reduciría esta inductancia parásita, tentativamente aumentando la ganancia del sistema. 
+    
 \end{itemize} 
 
-
+La integración de dos o más de estas posibles mejoras, como ha de ser un proceso de fabricación industrial, sumado a utilizar una placa de RF de mayor calidad, cuya hoja de datos nos brinde información precisa de su permeabilidad relativa, dimensiones y tangente de pérdida, permitiría realizar diseños mejores y semejantes a lo diseñado. 
 \newpage
 \printbibliography[heading=bibintoc, title={Bibliografía}]
 
